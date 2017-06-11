@@ -1,4 +1,5 @@
 from math import pi, sqrt, exp
+from tabulate import tabulate
 from assignment1 import PolynomialIntegration, GaussianIntegration
 
 N = 10  # Escolha arbitraria (maxima, neste caso)

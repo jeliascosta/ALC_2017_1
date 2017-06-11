@@ -14,7 +14,6 @@
 #       (2/3)*0.92308 + (1/3)*(1.65) =  1,165386666....7 = S(f)
 
 
-from math import ceil
 from assignment1 import PolynomialIntegration, GaussianIntegration
 
 
