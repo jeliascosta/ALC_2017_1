@@ -8,13 +8,15 @@ def Euler(x_0, t_0, t_n, delta_t):
     print "Resolvendo pelo metodo de Euler ...."
     print "Condicao inicial: y(0)=", x_0, "; ", t_0, "<= t <", t_n, "; delta de t:", delta_t,"...."
     k = 0
+    # Condição inicial y(t), t = t_0, fornecida para o algoritmo
     x_k = [x_0]
     t_k = t_0
     while t_k < t_n:
-        x_k.append(x_k[k] + delta_t * f(t_k, x_k[k]))  # inserindo x_k+1 na lista
+        # Definição de Xk+1 idêntica aos slides. K1 foi suprimido por simplificação.
+        x_k.append(x_k[k] + delta_t * f(t_k, x_k[k]))
         k = k + 1
-        t_k = t_0 + k * delta_t  # definicao completa de t_k. Valido para qualquer t_0, mesmo # 0
-    # print x_k
+        # Definição de Tk mais completa que os slides. Válido para qualquer T0, não só igual a 0.
+        t_k = t_0 + k * delta_t
     return x_k[-1]
 
 
@@ -22,15 +24,17 @@ def Runge_Kutta_2ordem(x_0, t_0, t_n, delta_t):
     print "Resolvendo pelo metodo de Runge-Kutta de 2a ordem ...."
     print "Condicao inicial: y(0)=", x_0, "; ", t_0, "<= t <", t_n, "; delta de t:", delta_t,"...."
     k = 0
+    # Condição inicial y(t), t = t_0, fornecida para o algoritmo
     x_k = [x_0]
     t_k = t_0
     while t_k < t_n:
         K1 = f(t_k, x_k[k])
         K2 = f(t_k + delta_t, x_k[k] + delta_t * K1)
-        x_k.append(x_k[k] + (delta_t / 2.0) * (K1 + K2))  # inserindo x_k+1 na lista
+        # Definição de Xk+1 idêntica aos slides.
+        x_k.append(x_k[k] + (delta_t / 2.0) * (K1 + K2))
         k = k + 1
-        t_k = t_0 + k * delta_t  # definicao completa de t_k. Valido para qualquer t_0, mesmo # 0
-    # print x_k
+        # Definição de Tk mais completa que os slides. Válido para qualquer T0, não só igual a 0.
+        t_k = t_0 + k * delta_t
     return x_k[-1]
 
 
@@ -38,6 +42,7 @@ def Runge_Kutta_4ordem(x_0, t_0, t_n, delta_t):
     print "Resolvendo pelo metodo de Runge-Kutta de 4a ordem ...."
     print "Condicao inicial: y(0)=", x_0, "; ", t_0, "<= t <", t_n, "; delta de t:", delta_t,"...."
     k = 0
+    # Condição inicial y(t), t = t_0, fornecida para o algoritmo
     x_k = [x_0]
     t_k = t_0
     while t_k < t_n:
@@ -45,10 +50,11 @@ def Runge_Kutta_4ordem(x_0, t_0, t_n, delta_t):
         K2 = f(t_k + delta_t/2.0, x_k[k] + (delta_t/2.0) * K1)
         K3 = f(t_k + delta_t/2.0, x_k[k] + (delta_t/2.0) * K2)
         K4 = f(t_k + delta_t, x_k[k] + delta_t * K3)
+        # Definição de Xk+1 idêntica aos slides.
         x_k.append(x_k[k] + (delta_t / 6) * (K1 + 2*K2 + 2*K3 + K4))  # inserindo x_k+1 na lista
         k = k + 1
-        t_k = t_0 + k * delta_t  # definicao completa de t_k. Valido para qualquer t_0, mesmo # 0
-    # print x_k
+        # Definição de Tk mais completa que os slides. Válido para qualquer T0, não só igual a 0.
+        t_k = t_0 + k * delta_t
     return x_k[-1]
 
 
